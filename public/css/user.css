@@ -1,0 +1,115 @@
+/* =========================================
+   THEME: ANEMO X YE QINGXIAN
+   ========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+
+:root {
+    --anemo-primary: #3fd1be;
+    --anemo-dark: #1a5e54;
+    --anemo-light: #a7f3ea;
+    --white-mist: #f0fffb;
+    --text-main: #2c3e50;
+}
+
+body { background: var(--white-mist); color: var(--text-main); overflow-x: hidden; }
+
+/* NAVBAR */
+.navbar {
+    position: fixed; top: 0; width: 100%; height: 85px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 6%; z-index: 9999; transition: 0.5s;
+}
+.navbar.scrolled { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); height: 70px; box-shadow: 0 5px 20px rgba(63, 209, 190, 0.15); }
+
+.logo { font-size: 26px; font-weight: 800; color: #fff; text-decoration: none; }
+.logo span { color: var(--anemo-primary); }
+.navbar.scrolled .logo { color: var(--anemo-dark); }
+
+.nav-menu { display: flex; align-items: center; gap: 30px; flex: 1; margin-left: 50px; }
+.nav-links { display: flex; gap: 25px; }
+.nav-links a { color: #fff; text-decoration: none; font-size: 14px; font-weight: 500; }
+.navbar.scrolled .nav-links a { color: var(--anemo-dark); }
+.nav-links a:hover { color: var(--anemo-primary) !important; }
+
+.nav-center { flex: 1; display: flex; justify-content: center; }
+.search-box { 
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50px; padding: 8px 25px; display: flex; width: 100%; max-width: 300px;
+}
+.navbar.scrolled .search-box { background: #e8f7f5; border: 1px solid var(--anemo-light); }
+.search-box input { background: none; border: none; outline: none; color: #fff; width: 100%; font-size: 13px; }
+.navbar.scrolled .search-box input { color: var(--anemo-dark); }
+.search-box button { background: none; border: none; color: var(--anemo-primary); cursor: pointer; }
+
+/* DROPDOWN KATEGORI FIX */
+.dropdown-kategori { position: relative; display: inline-block; }
+.dropbtn { 
+    background: none; border: 1px solid rgba(255,255,255,0.3); color: #fff; 
+    padding: 8px 15px; border-radius: 50px; font-weight: 600; cursor: pointer; 
+    font-size: 13px; display: flex; align-items: center; gap: 8px; transition: 0.3s;
+}
+.navbar.scrolled .dropbtn { color: var(--anemo-dark); border-color: var(--anemo-light); }
+
+.dropdown-content {
+    display: none; position: absolute; right: 0; top: 110%; 
+    background: #fff; min-width: 180px; border-radius: 15px; 
+    box-shadow: 0 10px 30px rgba(26, 94, 84, 0.2); z-index: 10000; overflow: hidden;
+}
+.dropdown-kategori:hover .dropdown-content { display: block; animation: slideDown 0.3s ease; }
+.dropdown-content a { color: var(--anemo-dark); padding: 12px 20px; text-decoration: none; display: block; font-size: 13px; transition: 0.2s; }
+.dropdown-content a:hover { background: var(--white-mist); color: var(--anemo-primary); border-left: 4px solid var(--anemo-primary); }
+
+.btn-auth { 
+    background: linear-gradient(135deg, var(--anemo-primary), #2bbbad); color: #fff;
+    padding: 10px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 14px;
+}
+
+/* HERO */
+.hero { height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.hero-video { position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
+.hero-overlay { position: absolute; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(26, 94, 84, 0.6)); }
+.hero-content { position: relative; text-align: center; color: #fff; }
+.hero-content h1 { font-size: 72px; font-weight: 800; text-shadow: 0 0 20px rgba(63, 209, 190, 0.5); }
+.btn-cta { 
+    display: inline-block; background: #fff; color: var(--anemo-dark); padding: 16px 45px; 
+    border-radius: 50px; text-decoration: none; font-weight: 700; margin-top: 30px;
+}
+
+/* CARDS - HARGA DIHAPUS */
+.rekomendasi, .container { padding: 80px 7%; }
+.grid-rekomendasi, .grid-main { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 35px; }
+.card, .rekom-card { background: #fff; border-radius: 25px; overflow: hidden; box-shadow: 0 10px 25px rgba(26, 94, 84, 0.05); cursor: pointer; transition: 0.4s; border: 1px solid transparent; }
+.card:hover { transform: translateY(-10px); border-color: var(--anemo-light); box-shadow: 0 20px 40px rgba(63, 209, 190, 0.2); }
+.card-img-container { position: relative; height: 220px; overflow: hidden; }
+.card-img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.card:hover img { transform: scale(1.1); }
+.card-body { padding: 25px; }
+.badge { background: #e0fcf9; color: var(--anemo-dark); padding: 4px 12px; border-radius: 6px; font-size: 11px; font-weight: 700; margin-right: 5px; }
+.card-footer-info { display: flex; justify-content: flex-end; padding-top: 15px; border-top: 1px solid #f0f0f0; }
+.btn-detail { font-size: 14px; font-weight: 700; color: var(--anemo-primary); }
+
+/* POPUP */
+.popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(11, 46, 41, 0.85); backdrop-filter: blur(8px); z-index: 10000; display: none; align-items: center; justify-content: center; padding: 20px; }
+.popup-content { background: #fff; width: 100%; max-width: 900px; border-radius: 30px; overflow: hidden; display: flex; box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
+.popup-img-side { width: 50%; }
+.popup-img-side img { width: 100%; height: 100%; object-fit: cover; }
+.popup-text { width: 50%; padding: 40px; display: flex; flex-direction: column; }
+.maps-link { background: var(--anemo-primary); color: #fff; padding: 12px 25px; border-radius: 12px; text-decoration: none; font-weight: 700; text-align: center; margin-top: 20px; }
+.close-btn { background: #f0f0f0; border: none; padding: 12px 25px; border-radius: 12px; cursor: pointer; margin-top: 10px; font-weight: 700; }
+
+/* PILLS */
+.filter-pills { display: flex; gap: 10px; }
+.pill { text-decoration: none; padding: 8px 20px; border-radius: 50px; border: 1.5px solid var(--anemo-light); color: var(--anemo-dark); font-size: 13px; font-weight: 600; }
+.pill.active { background: var(--anemo-primary); color: #fff; border-color: var(--anemo-primary); }
+
+/* FOOTER */
+.main-footer { background: #0b2e29; color: #fff; padding: 60px 7% 30px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+
+@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 850px) {
+    .nav-menu { display: none; }
+    .popup-content { flex-direction: column; max-height: 90vh; overflow-y: auto; }
+    .popup-img-side, .popup-text { width: 100%; }
+}
